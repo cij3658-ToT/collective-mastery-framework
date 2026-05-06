@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership & Team Maturity Framework — Teams of Tomorrow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#034159; --sand:#BFA084; --sage:#A4BF69; --coral:#F2955E; --cream:#E8E6DF;
+  --dark:#2C2C2A; --mgray:#888780; --lgray:#D3D1C7;
+  --navy-l:#D6E4EA; --sand-l:#F7EFE4; --sage-l:#EAF4D8; --coral-l:#FDEADC; --purple-l:#EEEDFE;
+  --purple:#534AB7; --gold:#C49A3C;
+  --s1:var(--navy); --s2:var(--purple); --s3:#BA7517; --s4:#1D9E75; --s5:var(--coral); --s6:var(--gold);
+  --s1l:var(--navy-l); --s2l:var(--purple-l); --s3l:#FAEEDA; --s4l:var(--sage-l); --s5l:var(--coral-l); --s6l:#FDF6E3;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans','Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--dark);line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* ── HEADER ─────────────────────────────────────────────────────── */
+.site-header{background:var(--navy);padding:0;position:sticky;top:0;z-index:100;border-bottom:3px solid var(--sand);}
+.header-inner{max-width:1200px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo-area{display:flex;align-items:center;gap:14px;}
+.logo-mark{width:40px;height:40px;}
+.brand-name{color:white;font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:.02em;}
+.brand-tag{color:var(--sand);font-family:var(--serif);font-style:italic;font-size:13px;display:block;margin-top:1px;}
+.header-title{color:white;font-family:var(--serif);font-size:18px;font-weight:500;text-align:center;line-height:1.3;}
+.header-title span{color:var(--sand);font-style:italic;display:block;font-size:14px;}
+
+/* ── HERO ────────────────────────────────────────────────────────── */
+.hero{background:var(--navy);padding:60px 32px 80px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(191,160,132,0.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 30%,rgba(164,191,105,0.06) 0%,transparent 50%);pointer-events:none;}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;}
+.hero-eyebrow{color:var(--sand);font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;}
+.hero h1{font-family:var(--serif);font-size:clamp(36px,5vw,58px);font-weight:600;color:white;line-height:1.2;margin-bottom:16px;}
+.hero h1 em{color:var(--sand);font-style:italic;}
+.hero-sub{font-family:var(--sans);font-size:16px;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto 32px;line-height:1.7;}
+.hero-cta{display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.btn-nav{border:1px solid rgba(191,160,132,0.4);border-radius:6px;padding:8px 20px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--sand);background:none;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;}
+.btn-nav:hover{background:rgba(191,160,132,0.12);border-color:var(--sand);}
+
+/* ── MAIN LAYOUT ─────────────────────────────────────────────────── */
+.main{max-width:1200px;margin:0 auto;padding:0 32px 80px;}
+
+/* ── SECTION HEADERS ─────────────────────────────────────────────── */
+.section{padding:60px 0 0;}
+.section-eyebrow{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mgray);margin-bottom:8px;}
+.section-title{font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);font-weight:600;color:var(--dark);line-height:1.2;margin-bottom:12px;}
+.section-title em{font-style:italic;color:var(--navy);}
+.section-intro{font-size:15px;color:var(--mgray);line-height:1.75;max-width:720px;margin-bottom:40px;}
+
+/* ── ACTIVATION BAND ─────────────────────────────────────────────── */
+.activation{background:white;border-radius:16px;padding:28px 32px;border-left:4px solid var(--s3);margin:40px 0;display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:center;}
+.act-label{font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--s3);text-transform:uppercase;margin-bottom:6px;}
+.act-title{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--dark);}
+.act-body{font-size:14px;color:var(--mgray);line-height:1.7;}
+
+/* ── STAGE NAVIGATION ─────────────────────────────────────────────── */
+.stage-nav{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap;}
+.stage-btn{flex:1;min-width:100px;border:1.5px solid transparent;border-radius:10px;padding:12px 10px;cursor:pointer;transition:all .2s;text-align:left;background:white;}
+.stage-btn .sbn{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin-bottom:4px;}
+.stage-btn .sbt{font-size:13px;font-weight:500;line-height:1.2;}
+.stage-btn .sbs{font-size:11px;opacity:.75;margin-top:2px;line-height:1.2;}
+.stage-btn:hover{filter:brightness(0.97);}
+.stage-btn.active{border-width:2px;}
+
+/* ── DETAIL CARD ─────────────────────────────────────────────────── */
+.detail-card{background:white;border-radius:16px;padding:28px 32px;min-height:320px;transition:all .3s;}
+.dc-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--lgray);}
+.dc-badge{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.dc-title{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--dark);margin-top:8px;line-height:1.2;}
+.dc-sub{font-size:13px;color:var(--mgray);margin-top:4px;font-style:italic;}
+.dc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.dc-cell{background:var(--cream);border-radius:10px;padding:14px 16px;}
+.dc-cell-h{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mgray);margin-bottom:6px;}
+.dc-cell-b{font-size:13px;color:var(--dark);line-height:1.6;}
+.dc-thread{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:16px;border-top:1px solid var(--lgray);}
+.dc-thread-item{display:flex;gap:10px;align-items:flex-start;}
+.dc-thread-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.dc-thread-h{font-size:11px;font-weight:500;color:var(--mgray);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;}
+.dc-thread-b{font-size:12px;color:var(--dark);line-height:1.55;}
+
+/* ── PARALLEL VIEW ─────────────────────────────────────────────────── */
+.parallel{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:start;}
+.par-col{display:flex;flex-direction:column;gap:8px;}
+.par-header{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mgray);padding:0 0 8px;border-bottom:2px solid var(--lgray);margin-bottom:4px;}
+.par-stage{border-radius:10px;padding:12px 14px;background:white;cursor:pointer;transition:all .2s;border:1.5px solid transparent;}
+.par-stage:hover{filter:brightness(0.98);}
+.par-stage.active{border-width:2px;}
+.par-stage .ps-n{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin-bottom:3px;}
+.par-stage .ps-t{font-size:13px;font-weight:500;}
+.par-stage .ps-s{font-size:11px;opacity:.75;margin-top:2px;}
+.par-mid{display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding-top:36px;gap:4px;}
+.par-link{width:32px;height:32px;border-radius:50%;background:white;border:1.5px solid var(--lgray);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s;}
+.par-link:hover{border-color:var(--sand);}
+.par-detail{background:white;border-radius:16px;padding:24px;margin-top:16px;grid-column:1/-1;}
+
+/* ── LINK TABLE ─────────────────────────────────────────────────── */
+.link-entry{display:grid;grid-template-columns:1fr 40px 1fr;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--lgray);}
+.link-entry:last-child{border-bottom:none;}
+.link-box{border-radius:8px;padding:10px 12px;}
+.link-label{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin-bottom:3px;}
+.link-title{font-size:13px;font-weight:500;}
+.link-arrow{text-align:center;font-size:18px;}
+.link-tension{font-size:12px;color:var(--dark);line-height:1.6;padding:6px 0 2px;grid-column:1/-1;}
+.link-mismatch{font-size:11px;color:var(--mgray);font-style:italic;line-height:1.5;padding-bottom:4px;grid-column:1/-1;}
+
+/* ── THREAD SECTION ─────────────────────────────────────────────── */
+.thread-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+.thread-card{border-radius:12px;padding:16px 18px;background:white;}
+.thread-stage{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.thread-type{font-size:12px;font-weight:500;color:var(--mgray);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 4px;}
+.thread-body{font-size:12px;color:var(--dark);line-height:1.6;}
+
+/* ── ATTRIBUTES ─────────────────────────────────────────────────── */
+.attr-grid{display:grid;grid-template-columns:120px 1fr 1fr;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--lgray);}
+.attr-head{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mgray);padding:10px 14px;background:var(--dark);color:rgba(255,255,255,0.6);}
+.attr-cell{padding:12px 14px;border-bottom:1px solid var(--lgray);border-right:1px solid var(--lgray);font-size:12px;color:var(--dark);line-height:1.55;vertical-align:top;}
+.attr-cell:nth-child(3n){border-right:none;}
+.attr-stage{font-weight:500;font-size:12px;}
+
+/* ── MASTERY SPECIAL ─────────────────────────────────────────────── */
+.mastery-band{background:linear-gradient(135deg,#FDF6E3 0%,#FFF9F0 50%,#FDF6E3 100%);border-radius:16px;padding:32px;border:2px solid var(--gold);margin:24px 0;}
+.mastery-band .mb-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.mastery-band .mb-title{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--dark);margin-bottom:12px;}
+.mastery-band .mb-body{font-size:14px;color:var(--mgray);line-height:1.75;max-width:800px;}
+.mastery-band .mb-qualities{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.mb-q{background:white;border-radius:10px;padding:14px 16px;border-left:3px solid var(--gold);}
+.mb-q-h{font-size:11px;font-weight:500;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+.mb-q-b{font-size:12px;color:var(--dark);line-height:1.55;}
+
+/* ── FOOTER ─────────────────────────────────────────────────────── */
+.site-footer{background:var(--navy);padding:40px 32px;border-top:3px solid var(--sand);}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+.footer-brand{color:white;font-family:var(--sans);font-size:14px;}
+.footer-brand span{color:var(--sand);font-family:var(--serif);font-style:italic;display:block;margin-top:2px;}
+.footer-note{color:rgba(255,255,255,0.5);font-size:11px;text-align:right;line-height:1.6;}
+
+/* ── NAV TABS ─────────────────────────────────────────────────────── */
+.tab-bar{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:32px;background:white;border-radius:12px;padding:6px;border:1px solid var(--lgray);}
+.tab{flex:1;min-width:120px;border:none;border-radius:8px;padding:10px 14px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--mgray);cursor:pointer;transition:all .2s;background:none;text-align:center;}
+.tab.active{background:var(--navy);color:white;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ── UTILITIES ─────────────────────────────────────────────────────── */
+.divider{height:1px;background:var(--lgray);margin:32px 0;}
+.pull-quote{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--navy);border-left:3px solid var(--sand);padding:12px 20px;margin:24px 0;line-height:1.6;}
+@media(max-width:700px){
+  .dc-grid,.dc-thread,.parallel,.thread-grid,.mastery-band .mb-qualities,.attr-grid{grid-template-columns:1fr;}
+  .parallel{display:block;}
+  .par-mid{flex-direction:row;padding:8px 0;}
+  .header-title{display:none;}
+  .attr-head:first-child,.attr-cell:nth-child(3n+1){display:none;}
+  .attr-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 8C42 8 28 18 24 28C18 40 20 52 28 62C22 68 18 76 20 84C22 90 30 94 38 92C44 96 50 96 56 94C62 92 66 86 64 80C72 76 78 68 78 58C82 48 78 36 70 28C64 20 56 8 50 8Z" stroke="#BFA084" stroke-width="2" fill="none"/>
+        <path d="M50 18C44 18 34 26 30 34C26 44 28 54 34 62C30 66 26 72 28 78C30 82 36 84 42 82C46 86 50 86 54 84C58 82 60 78 58 74C64 70 68 64 68 56C70 48 66 38 60 32C56 24 54 18 50 18Z" stroke="#BFA084" stroke-width="1.5" fill="none"/>
+        <path d="M50 28C46 28 40 34 38 40C34 48 36 56 40 62C38 64 36 68 38 72C40 74 44 76 48 74C50 76 52 76 54 74C56 72 56 70 54 68C58 64 60 60 60 54C60 48 58 40 54 36C52 30 52 28 50 28Z" stroke="#BFA084" stroke-width="1" fill="none"/>
+      </svg>
+      <div>
+        <div class="brand-name">Teams of Tomorrow<sup style="font-size:9px;">®</sup></div>
+        <span class="brand-tag">Where role meets soul</span>
+      </div>
+    </div>
+    <div class="header-title">
+      Leadership &amp; Team Maturity Framework
+      <span>A thought-piece by Chris Jackson &amp; Elena Hinova-McNamee</span>
+    </div>
+    <div style="width:200px;display:flex;justify-content:flex-end;">
+      <a href="https://teamsoftomorrow.net" class="btn-nav" style="font-size:11px;">teamsoftomorrow.net ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Teams of Tomorrow · Working Framework</p>
+    <h1>From <em>capacity deficit</em><br>to collective mastery</h1>
+    <p class="hero-sub">A framework for understanding how leaders and teams grow together — through six recognisable stages of maturity — toward a shared capacity to navigate complexity with wisdom.</p>
+    <div class="hero-cta">
+      <a href="#overview" class="btn-nav">Overview</a>
+      <a href="#leadership" class="btn-nav">Leadership maturity</a>
+      <a href="#team" class="btn-nav">Team maturity</a>
+      <a href="#links" class="btn-nav">Iterative link</a>
+      <a href="#mastery" class="btn-nav">Mastery</a>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ══ OVERVIEW ══════════════════════════════════════════════════ -->
+  <div class="section" id="overview">
+    <p class="section-eyebrow">The central proposition</p>
+    <h2 class="section-title">Not competence. Not performance.<br><em>Maturity.</em></h2>
+    <p class="section-intro">Most leadership development asks: how can this leader perform better? This framework asks a different question — how do a leader and team grow together toward the kind of wisdom that makes sustained navigation of complexity possible? The answer runs through six recognisable stages of co-maturation, activated by a single pivotal moment.</p>
+
+    <div class="activation">
+      <div>
+        <p class="act-label">The activation threshold</p>
+        <h3 class="act-title" style="font-family:var(--serif);">The capacity deficit</h3>
+      </div>
+      <p class="act-body">The iterative co-development cannot begin until the leader consciously acknowledges their capacity deficit — the recognition that the demands of their role now exceed their current reach. This is not a failure. It is the precondition for everything that follows. A leader who remains in unconscious capacity deficit places a ceiling on both their own development and the team's. The moment of acknowledgement lifts that ceiling and makes the whole journey possible.</p>
+    </div>
+
+    <div class="pull-quote">"The most important question is not what is wrong with the leader. It is what the system is making possible — and what it is making impossible."</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;">
+      <div style="background:white;border-radius:12px;padding:20px 24px;border-left:3px solid var(--navy);">
+        <p style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin-bottom:12px;">Leadership stages</p>
+        <div id="overview-leader-list"></div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:20px 24px;border-left:3px solid var(--sage);">
+        <p style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#1D9E75;margin-bottom:12px;">Team stages</p>
+        <div id="overview-team-list"></div>
+      </div>
+    </div>
+
+    <div style="background:white;border-radius:12px;padding:20px 24px;border-top:3px solid var(--sand);">
+      <p style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mgray);margin-bottom:8px;">Two golden threads — present at every stage</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><p style="font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px;">Genuine dialogue</p><p style="font-size:12px;color:var(--mgray);line-height:1.6;">The capacity to suspend assumptions and think together toward the not-yet-known — not chasing the answer, but committed to genuine exploration. This both requires and produces maturity.</p></div>
+        <div><p style="font-size:13px;font-weight:500;color:var(--dark);margin-bottom:4px;">Psychological flexibility</p><p style="font-size:12px;color:var(--mgray);line-height:1.6;">Being "safe enough" — from ACT — rather than comprehensively safe. A dynamic quality of presence to complexity that deepens progressively rather than a state to be achieved and maintained.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LEADERSHIP ══════════════════════════════════════════════════ -->
+  <div class="section" id="leadership">
+    <p class="section-eyebrow">The leadership continuum</p>
+    <h2 class="section-title">How leaders develop<br><em>through complexity</em></h2>
+    <p class="section-intro">Six stages of leadership maturity — each describing a characteristic way of holding complexity, relating to the team, and understanding the leader's own role. Development moves from directive authority toward generative wisdom.</p>
+
+    <div class="stage-nav" id="l-nav"></div>
+    <div class="detail-card" id="l-detail">
+      <p style="color:var(--mgray);font-size:14px;font-family:var(--serif);font-style:italic;">Select a stage above to explore it in depth.</p>
+    </div>
+  </div>
+
+  <!-- ══ TEAM ══════════════════════════════════════════════════════ -->
+  <div class="section" id="team">
+    <p class="section-eyebrow">The team continuum</p>
+    <h2 class="section-title">How teams develop<br><em>toward collective wisdom</em></h2>
+    <p class="section-intro">Six stages of team maturity — from dependent and direction-reliant through to emergent and self-developing. No team reaches the later stages without a leader who has crossed the capacity deficit threshold.</p>
+
+    <div class="stage-nav" id="t-nav"></div>
+    <div class="detail-card" id="t-detail">
+      <p style="color:var(--mgray);font-size:14px;font-family:var(--serif);font-style:italic;">Select a stage above to explore it in depth.</p>
+    </div>
+  </div>
+
+  <!-- ══ ITERATIVE LINK ══════════════════════════════════════════════ -->
+  <div class="section" id="links">
+    <p class="section-eyebrow">The iterative relationship</p>
+    <h2 class="section-title">Neither matures alone.<br><em>The link is mutual.</em></h2>
+    <p class="section-intro">Each leadership stage enables a corresponding team stage — and each stage of team maturity generates new complexity that calls the leader forward. The relationship is iterative and circular. Remove one and the other stalls.</p>
+
+    <div class="tab-bar">
+      <button class="tab active" onclick="showTab('links','all',this)">All stages</button>
+      <button class="tab" onclick="showTab('links','mismatches',this)">Common mismatches</button>
+    </div>
+    <div id="links-all" class="tab-panel active" id="link-all-content"></div>
+    <div id="links-mismatches" class="tab-panel" id="link-mm-content"></div>
+  </div>
+
+  <!-- ══ GOLDEN THREAD ══════════════════════════════════════════════ -->
+  <div class="section" id="thread">
+    <p class="section-eyebrow">The golden thread</p>
+    <h2 class="section-title">Dialogue and flexibility —<br><em>not goals but growing qualities</em></h2>
+    <p class="section-intro">Genuine dialogue and psychological flexibility are not achievements to unlock at a particular stage. They are qualities that deepen progressively as the system matures. At every stage the question is: what level of genuine inquiry is this system capable of right now?</p>
+    <div id="thread-content"></div>
+  </div>
+
+  <!-- ══ ATTRIBUTES ══════════════════════════════════════════════════ -->
+  <div class="section" id="attributes">
+    <p class="section-eyebrow">What needs to grow</p>
+    <h2 class="section-title">Developmental attributes —<br><em>the capacities that enable the next stage</em></h2>
+    <p class="section-intro">These are not competencies to acquire but capacities to develop: qualities of presence, relationship, and collective intelligence that become available when the conditions are right.</p>
+    <div id="attr-content"></div>
+  </div>
+
+  <!-- ══ MASTERY ══════════════════════════════════════════════════════ -->
+  <div class="section" id="mastery">
+    <p class="section-eyebrow">Stage six</p>
+    <h2 class="section-title">Beyond excellence —<br><em>toward mastery</em></h2>
+    <p class="section-intro">Stage six is qualitatively different from the stages that precede it. It is not more of the same — it is a transformation in the nature of the system itself. The leader role has dissolved as structural authority and re-emerged as relational function. The team is no longer an organisation of people — it is a community of shared values and mutual care.</p>
+
+    <div class="mastery-band">
+      <p class="mb-label">Stage 6 — Mastery</p>
+      <h3 class="mb-title">Where role meets soul — fully</h3>
+      <p class="mb-body">At mastery, the distinction between leader development and team development has dissolved. The system matures as a whole. Development is no longer a project the system undertakes — it is a quality of how the system exists. The not-yet-known is not an aspiration or a threshold to be crossed. It is the system's home ground. Complexity is not navigated — it is inhabited, with wisdom that no individual member of the system could hold alone.</p>
+      <div class="mb-qualities">
+        <div class="mb-q"><p class="mb-q-h">Shared moral life</p><p class="mb-q-b">Values and beliefs are no longer individually held and occasionally aligned. They have become the shared ground from which all action arises. In Aristotle's philia — deep friendship grounded in shared virtue — each person genuinely desires the flourishing of the other.</p></div>
+        <div class="mb-q"><p class="mb-q-h">Ubuntu coherence</p><p class="mb-q-b">"I am because we are." The boundary between the individual's wellbeing and the community's wellbeing has become permeable. The system's health and each member's development are experienced as inseparable — not as a philosophy but as a lived reality.</p></div>
+        <div class="mb-q"><p class="mb-q-h">Negative capability</p><p class="mb-q-b">Keats' quality of remaining in uncertainty and doubt without an irritable reaching after fact and reason. The system is at home in complexity — not despite it but because its relationship to the not-yet-known has been transformed by sustained practice of genuine dialogue.</p></div>
+        <div class="mb-q"><p class="mb-q-h">Dissolved authority</p><p class="mb-q-b">The leader role exists for functional purposes, not developmental ones. Authority is held lightly and redistributed continuously. Leadership is a quality of the system's collective action, not a property of any individual.</p></div>
+        <div class="mb-q"><p class="mb-q-h">Regenerative learning</p><p class="mb-q-b">The system continuously nourishes its own capacity to learn and develop — in Goerner's terms, a fully regenerative network. Development feeds back into the system rather than being extracted from it or consumed by it.</p></div>
+        <div class="mb-q"><p class="mb-q-h">Emergent wisdom</p><p class="mb-q-b">The system regularly produces understanding that no individual could have reached alone — not as an occasional event but as a reliable feature of how it thinks together. This is the practical meaning of collective wisdom.</p></div>
+      </div>
+    </div>
+
+    <div class="pull-quote">"High performance is an output of mastery, not its definition. A masterful system may not always be high performing by conventional measures — but it will always be wise, resilient, and generative."</div>
+  </div>
+
+  <!-- ══ ABOUT ══════════════════════════════════════════════════════ -->
+  <div class="section" id="about">
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:32px 0;">
+      <div>
+        <p class="section-eyebrow">About this framework</p>
+        <h2 class="section-title" style="font-size:26px;">Grounded in practice,<br><em>informed by theory</em></h2>
+        <p style="font-size:14px;color:var(--mgray);line-height:1.75;margin-top:12px;">This framework draws on Organisational Maturity Theory, Heifetz's adaptive leadership distinction, Goerner's regenerative systems science, Bohm's dialogic practice, and ACT's concept of psychological flexibility. It also draws on Aristotle's virtue ethics, Ubuntu philosophy, and Keats' negative capability — because the most mature human and collective development cannot be captured by Western developmental psychology alone.</p>
+        <p style="font-size:14px;color:var(--mgray);line-height:1.75;margin-top:12px;">It is a working framework, not a finished theory. It is offered as an invitation to think differently about what leadership development is actually for.</p>
+      </div>
+      <div>
+        <p class="section-eyebrow">About Teams of Tomorrow</p>
+        <div style="background:var(--navy);border-radius:12px;padding:24px;color:white;margin-top:8px;">
+          <p style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--sand);margin-bottom:12px;">Where role meets soul</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px;">Teams of Tomorrow is a peer-led community of practice for leaders navigating complexity. We offer a twelve-week programme — in small, private cohorts of six — that creates the conditions for the co-development this framework describes.</p>
+          <p style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:20px;font-style:italic;">Chris Jackson &amp; Elena Hinova-McNamee, Co-founders</p>
+          <a href="https://teamsoftomorrow.net" style="display:inline-block;border:1px solid var(--sand);border-radius:6px;padding:8px 20px;font-size:13px;font-weight:500;color:var(--sand);text-decoration:none;">Visit teamsoftomorrow.net ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      Teams of Tomorrow<sup>®</sup>
+      <span>Where role meets soul · teamsoftomorrow.net</span>
+    </div>
+    <p class="footer-note">©Teams of Tomorrow® · Leadership &amp; Team Maturity Framework<br>Chris Jackson &amp; Elena Hinova-McNamee · All rights reserved</p>
+  </div>
+</footer>
+
+<script>
+const COLS=["#034159","#534AB7","#BA7517","#1D9E75","#F2955E","#C49A3C"];
+const BKGS=["rgba(3,65,89,0.07)","rgba(83,74,183,0.07)","rgba(186,117,23,0.07)","rgba(29,158,117,0.07)","rgba(216,90,48,0.07)","rgba(196,154,60,0.07)"];
+
+const lStages=[
+  {n:"1",title:"Directive",sub:"Expert authority",
+   ops:"Leads from personal expertise. Direction flows downward. Uncertainty is managed by increasing control. The leader is the primary source of knowledge and answers.",
+   rel:"The team is an execution resource. The leader's role is to tell — the team's role is to do. Challenge is experienced as resistance.",
+   comp:"Technical problems only. Adaptive challenges are converted into technical ones. The leader's confidence is genuine but its range is limited to known terrain.",
+   deficit:"Invisible. The leader has no framework for recognising that some challenges require a different kind of response.",
+   dialogue:"Not yet available. The leader's certainty forecloses the space genuine dialogue requires.",
+   flex:"Low. The leader's sense of competence depends on having answers. Uncertainty is experienced as threat."},
+  {n:"2",title:"Consultative",sub:"Seeking input, retaining authority",
+   ops:"Recognises the value of the team's knowledge. Actively seeks input before deciding. Decisions remain with the leader, but the information landscape has widened.",
+   rel:"The team is a resource of information as well as execution. The leader asks questions. The team begins to feel its knowledge matters — within limits.",
+   comp:"Still primarily technical, with growing awareness that some problems resist technical solutions. The early signal of the threshold begins to surface.",
+   deficit:"Beginning to surface. The leader notices that some challenges don't resolve despite good process and good information.",
+   dialogue:"Partial. The leader can listen, but listening still serves the purpose of informing a decision the leader will make.",
+   flex:"Developing. The leader can hold more uncertainty than at stage 1, but still prefers to resolve it quickly."},
+  {n:"3",title:"Collaborative",sub:"← Capacity deficit threshold",
+   ops:"The acknowledged threshold. The leader recognises that their current capacity no longer matches the demands of the role. The sense-making work is redistributed — not as abdication but as values-grounded redesign.",
+   rel:"The team is now genuinely co-responsible for navigating complexity. The relationship becomes laterally oriented rather than hierarchically structured.",
+   comp:"Adaptive challenges are now named as such. The question shifts from 'what's the answer?' to 'how do we think about this together?'",
+   deficit:"Consciously acknowledged. This is the activation moment. The gap is named — not as failure, but as signal.",
+   dialogue:"Genuine dialogue becomes possible for the first time. The leader's acknowledged not-knowing creates space for real suspension of assumptions.",
+   flex:"Significantly increased. The leader's capacity deficit acknowledgement is itself an act of psychological flexibility — publicly inhabiting uncertainty."},
+  {n:"4",title:"Facilitative",sub:"Holding the space for collective intelligence",
+   ops:"The leader's primary contribution shifts from providing answers to asking better questions and holding conditions in which the team can think well. The leader is a node, not the hub.",
+   rel:"The team has internalised co-responsibility. It no longer requires the leader to initiate collective thinking. The relationship is genuinely reciprocal.",
+   comp:"The leader and team together can hold genuinely complex, wicked problems — not solving them but inhabiting them productively.",
+   deficit:"Integrated. The capacity deficit experience has been metabolised into a permanent learning orientation.",
+   dialogue:"Fluent. The suspension of assumptions is practised habitually. The not-yet-known is a shared and comfortable orientation.",
+   flex:"Mature. The leader can engage with genuinely threatening material without either avoiding it or fragmenting."},
+  {n:"5",title:"Generative",sub:"The system learns and develops itself",
+   ops:"The leader and team have become a learning system. Development is no longer something that happens to the system — it is something the system does, continuously.",
+   rel:"The team is fully self-organising in its development. The leader is one member of this system, not its apex.",
+   comp:"The system navigates complexity by continuously reorganising its own intelligence. Wicked problems are transformed rather than solved.",
+   deficit:"Transcended. The developmental orientation is permanent — the system is always at the edge of its current capacity by design.",
+   dialogue:"Native. Genuine emergence is a regular feature of the team's collective thinking. Insights arise from dialogue that no one brought into the room.",
+   flex:"Structural. Psychological flexibility is not individually maintained — it is a feature of the system itself."},
+  {n:"6",title:"Mastery",sub:"Role and soul — fully integrated",
+   ops:"The leader role has dissolved as structural authority and re-emerged as relational function. Leadership is a quality of the system's collective action, not a property of any individual.",
+   rel:"The distinction between leader and team has become permeable. The system exists as a community of shared values and mutual care. Each member genuinely desires the flourishing of the others.",
+   comp:"The system inhabits complexity with wisdom. The not-yet-known is the system's home ground. Understanding arises that no individual could have reached alone.",
+   deficit:"The concept has been transcended. The system lives permanently at its own developmental edge — not anxiously, but as its natural orientation toward what wants to emerge.",
+   dialogue:"Generative and emergent. Keats' negative capability — remaining in uncertainty without irritable reaching after fact — is the system's lived quality.",
+   flex:"Constitutive. Psychological flexibility is not something the system has — it is something the system is."},
+];
+
+const tStages=[
+  {n:"1",title:"Dependent",sub:"Direction-reliant",
+   ops:"The team waits for direction before acting. Safety and clarity come from the leader's certainty. The team's collective intelligence is largely dormant.",
+   lead:"Positions the leader as the source of answers. The team's dependency and the leader's certainty are mutually sustaining.",
+   comp:"No framework for holding complexity collectively. Uncertainty is passed upward.",
+   signals:"Low levels of unsolicited input. High compliance. Little challenge. The team performs well in stable conditions, becomes anxious in uncertain terrain.",
+   dialogue:"Not available. Meetings are briefings, updates, or problem-reporting sessions.",
+   flex:"Low. The team's safety is contingent on the leader's certainty. When that certainty is absent, the team fragments or defers."},
+  {n:"2",title:"Participating",sub:"Contributing within limits",
+   ops:"The team begins to contribute knowledge and perspective — when invited. Members have opinions and will share them in the right conditions. Challenge is emerging but tentative.",
+   lead:"Begins to place mild pressure on the directive pattern. The team starts to expect consultation, not just direction.",
+   comp:"Can hold moderately complex situations collectively, but tends to look to the leader for framing.",
+   signals:"Increasing quality of input when asked. Some unsolicited contributions. Occasional challenge.",
+   dialogue:"Partial. Structured dialogue is possible when facilitated. Genuine suspension of assumptions is not yet a norm.",
+   flex:"Developing. The team can engage with moderately uncertain material. Genuinely threatening topics are still avoided."},
+  {n:"3",title:"Collaborative",sub:"← Capacity deficit threshold",
+   ops:"The team accepts co-responsibility for navigating complexity. It no longer waits for the leader to make sense of difficult situations. This stage is only accessible if the leader has acknowledged their capacity deficit.",
+   lead:"Only enabled by a leader who has crossed the threshold. A directive leader suppresses this stage — their certainty closes the space the team needs.",
+   comp:"The team can hold and work with genuinely adaptive challenges. Members contribute different perspectives without requiring the leader to synthesise.",
+   signals:"Unsolicited challenge. Members building on each other's thinking. Visibly higher quality of collective sense-making.",
+   dialogue:"Genuinely available. The team can enter Bohm's dialogue — suspending assumptions, thinking toward the not-yet-known.",
+   flex:"Substantially increased. Being 'safe enough' is becoming a shared norm rather than individually managed."},
+  {n:"4",title:"Co-creative",sub:"Generating new understanding together",
+   ops:"The team actively co-creates the conditions for its own development. It reads its own signals and responds without requiring a facilitator to notice what needs attention.",
+   lead:"The leader's role has fundamentally shifted — they are one member of a sense-making system. Only sustainable if the leader has integrated the capacity deficit experience.",
+   comp:"The team actively seeks out complexity that will require development. The edge of its capacity is the most interesting place to work.",
+   signals:"The team generates its own developmental questions. After-action inquiries happen without prompting.",
+   dialogue:"Fluent and self-initiating. The team moves into genuine dialogue without requiring a facilitator.",
+   flex:"Mature and collective. The team can hold genuinely threatening material without fragmenting."},
+  {n:"5",title:"Emergent",sub:"The team as a living learning system",
+   ops:"Development is not a project — it is how the team works. The boundary between the team's work and the team's development has dissolved.",
+   lead:"Leader and team are indistinguishable as a developmental system. Hierarchy exists for functional purposes, not developmental ones.",
+   comp:"The team navigates complex, wicked problems by continuously transforming its own relationship to them.",
+   signals:"New capacity appears without any individual being able to account for it. The team surprises itself.",
+   dialogue:"Native and generative. Genuine emergence is a regular feature. Insights arise that no one brought into the room.",
+   flex:"Structural and self-sustaining. The system has internalised psychological flexibility as a way of being."},
+  {n:"6",title:"Masterful",sub:"A community of wisdom",
+   ops:"The team exists as a community of shared values and mutual care — not as an organisation of people but as a moral and relational whole. Aristotle's philia: each person genuinely desires the flourishing of the others.",
+   lead:"The distinction between leader and team is functional, not developmental. The team's wisdom includes the leader — and the leader's development is indistinguishable from the team's.",
+   comp:"Complexity is inhabited rather than navigated. The system generates wisdom appropriate to whatever situation it encounters.",
+   signals:"The team produces understanding that no individual can account for or take credit for. Shared purpose is felt rather than stated. New members are shaped by the system's culture rather than trained into it.",
+   dialogue:"Constitutive. Dialogue is not something the team does — it is how the team thinks. The not-yet-known is the shared orientation of every conversation.",
+   flex:"Ubuntu: the individual's wellbeing and the community's wellbeing are experienced as inseparable. Psychological flexibility is the system's existential ground."},
+];
+
+const links=[
+  {s:0,ls:"Directive",ts:"Dependent",arrow:"sustains",tension:"The team's dependency reinforces the leader's certainty. Neither can develop without something disrupting the pattern.",mismatch:"When a stage 1 leader faces adaptive complexity, the team is left to manage what the leader cannot hold. Quiet disconnection follows."},
+  {s:1,ls:"Consultative",ts:"Participating",arrow:"enables",tension:"The leader's invitation creates space for the team's contribution. The team's emerging challenge begins to call the leader forward.",mismatch:"A consultative leader whose team is already at stage 3 finds the team frustrated by the limits of consultation. The team's maturity exceeds the structure the leader provides."},
+  {s:2,ls:"Collaborative",ts:"Collaborative",arrow:"co-activates",tension:"This threshold must be crossed simultaneously. The leader's acknowledged capacity deficit and the team's acceptance of co-responsibility are two sides of the same developmental moment.",mismatch:"The most common mismatch in mature organisations: the leader crosses the threshold but the team has not been prepared for co-responsibility. The leader's openness is experienced as instability rather than invitation."},
+  {s:3,ls:"Facilitative",ts:"Co-creative",arrow:"enables",tension:"The leader's ability to hold the space for collective intelligence enables the team to generate understanding it could not reach alone.",mismatch:"A facilitative leader with a dependent team produces learned helplessness. The team cannot respond to genuine invitation because it has no experience of its own sense-making capacity."},
+  {s:4,ls:"Generative",ts:"Emergent",arrow:"embodies",tension:"At this stage the leader-team system has become a single developmental entity. The distinction between leader maturity and team maturity is functional, not developmental.",mismatch:"Cannot be reached if either the leader or the team is significantly behind the other. The system matures as a whole or not at all."},
+  {s:5,ls:"Mastery",ts:"Masterful",arrow:"becomes",tension:"The leader role and team identity have merged into a single moral and relational community. Development is indistinguishable from existence.",mismatch:"Not a mismatch risk but a contextual one: organisations that reward individual performance over collective wisdom actively suppress the conditions for this stage."},
+];
+
+const threads=[
+  {stage:"Stage 1",d:"Not yet available. The leader's certainty and the team's dependency together foreclose the space genuine inquiry requires.",f:"Low. Safety depends on the leader having answers. Disruption to that certainty creates anxiety rather than curiosity."},
+  {stage:"Stage 2",d:"Partial. The leader listens more genuinely. But the purpose of listening is still to inform a decision the leader will make.",f:"Developing. Moderate uncertainty can be held — provided it will be resolved. Genuine open-endedness remains uncomfortable."},
+  {stage:"Stage 3 (threshold)",d:"Genuine dialogue becomes available for the first time. The leader's acknowledged not-knowing creates space for real suspension of assumptions. The team begins to think together.",f:"Significantly increased. The capacity deficit acknowledgement is itself an act of flexibility — publicly inhabiting uncertainty models the norm the system needs."},
+  {stage:"Stage 4",d:"Fluent and self-initiating. The system regularly enters genuine inquiry toward the not-yet-known. Wicked problems are inhabited rather than resolved.",f:"Mature and collective. The system can engage with genuinely threatening material — challenges to core assumptions, unresolvable complexity — without avoiding it or fragmenting."},
+  {stage:"Stage 5",d:"Native. Genuine emergence is a regular feature of collective thinking. Insights arise from dialogue that no one brought into the room.",f:"Structural. Psychological flexibility is not individually maintained — it is a feature of the system itself, regenerated by the system's own ongoing development."},
+  {stage:"Stage 6 — Mastery",d:"Constitutive and emergent. Keats' negative capability — remaining in uncertainty without irritable reaching after fact and reason — is the system's lived quality. This is the not-yet-known as a permanent home ground.",f:"Ubuntu. The individual's wellbeing and the community's wellbeing are experienced as inseparable. Flexibility is existential — the ground of the system's being, not a capacity it exercises."},
+];
+
+const attrs=[
+  {s:"1 → 2",l:"Genuine curiosity about what the team knows. Capacity to receive input without converting it into confirmation of existing direction.",t:"Sufficient safety to offer perspective. The beginning of a sense that the team's knowledge matters."},
+  {s:"2 → 3",l:"Capacity deficit acknowledgement. The ability to name — privately first, then in relationship — that current reach does not match current demand. Values-groundedness as navigational anchor.",t:"Willingness to accept co-responsibility. The shift from 'the leader will figure it out' to 'we figure this out together.' Requires the leader to genuinely create the conditions."},
+  {s:"3 → 4",l:"Inquiry as primary mode. Holding a question rather than providing an answer — and finding this generative rather than uncomfortable. Genuine suspension of assumptions.",t:"Self-initiating sense-making. Noticing and naming what is happening in the system without waiting for the leader to surface it. After-action inquiry becomes habitual."},
+  {s:"4 → 5",l:"Disappearance as the apex. The leader's development becomes indistinguishable from the team's. Primary contribution is to the quality of the system's thinking.",t:"Emergent collective intelligence. Regularly generating understanding that no individual could have reached. Development is a way of being, not a project."},
+  {s:"5 → 6",l:"Dissolution of role-identity as authority. Leadership is held as a quality of the system's collective action — not a property of the individual. The leader's wisdom is inseparable from the team's.",t:"Shared moral and emotional life. Values become constitutive rather than aspirational. Mutual care is structural. The community's flourishing and each individual's are experienced as one."},
+];
+
+function buildOverviewLists(){
+  const ll=document.getElementById('overview-leader-list');
+  const tl=document.getElementById('overview-team-list');
+  lStages.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.style.cssText=`display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid #D3D1C7;font-size:13px;`;
+    d.innerHTML=`<span style="width:18px;height:18px;border-radius:50%;background:${COLS[i]};flex-shrink:0;display:inline-block;opacity:0.8;"></span><span style="color:${COLS[i]};font-weight:500;">${i+1}</span><span style="color:#2C2C2A;">${s.title}</span>${i===2?'<span style="font-size:10px;color:#BA7517;font-weight:500;margin-left:auto;">← threshold</span>':''}`;
+    ll.appendChild(d);
+  });
+  tStages.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.style.cssText=`display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid #D3D1C7;font-size:13px;`;
+    d.innerHTML=`<span style="width:18px;height:18px;border-radius:50%;background:${COLS[i]};flex-shrink:0;display:inline-block;opacity:0.8;"></span><span style="color:${COLS[i]};font-weight:500;">${i+1}</span><span style="color:#2C2C2A;">${s.title}</span>${i===2?'<span style="font-size:10px;color:#BA7517;font-weight:500;margin-left:auto;">← threshold</span>':''}`;
+    tl.appendChild(d);
+  });
+}
+
+function buildNav(id,stages,detailId){
+  const nav=document.getElementById(id);
+  stages.forEach((s,i)=>{
+    const btn=document.createElement('button');
+    btn.className='stage-btn';
+    btn.id=id+'-'+i;
+    btn.style.background=BKGS[i];
+    btn.style.borderColor=i===2?COLS[i]:'transparent';
+    btn.innerHTML=`<div class="sbn" style="color:${COLS[i]};">Stage ${parseInt(s.n)}</div><div class="sbt" style="color:${COLS[i]};">${s.title}</div><div class="sbs" style="color:${COLS[i]};">${s.sub}</div>`;
+    btn.onclick=()=>{
+      nav.querySelectorAll('.stage-btn').forEach(b=>{b.classList.remove('active');b.style.borderColor=b.id.endsWith('-2')?COLS[2]:'transparent';});
+      btn.classList.add('active');btn.style.borderColor=COLS[i];
+      renderDetail(detailId,s,i,id.startsWith('l'));
+    };
+    nav.appendChild(btn);
+  });
+}
+
+function renderDetail(id,s,i,isL){
+  const dp=document.getElementById(id);
+  const dims=isL?[["How the leader operates",s.ops],["Relationship with the team",s.rel],["How complexity is held",s.comp],["Capacity deficit visibility",s.deficit]]:[["How the team operates",s.ops],["Effect on the leader",s.lead],["How complexity is held",s.comp],["Observable signals",s.signals]];
+  const cells=dims.map(([h,b])=>`<div class="dc-cell"><div class="dc-cell-h">${h}</div><p class="dc-cell-b">${b}</p></div>`).join('');
+  dp.innerHTML=`
+    <div class="dc-header">
+      <div>
+        <span class="dc-badge" style="background:${BKGS[i]};color:${COLS[i]};">Stage ${i+1}</span>
+        <h3 class="dc-title">${s.title}</h3>
+        <p class="dc-sub">${s.sub}</p>
+      </div>
+    </div>
+    <div class="dc-grid">${cells}</div>
+    <div class="dc-thread">
+      <div class="dc-thread-item">
+        <div class="dc-thread-dot" style="background:${COLS[i]};"></div>
+        <div><p class="dc-thread-h">Dialogue quality</p><p class="dc-thread-b">${s.dialogue}</p></div>
+      </div>
+      <div class="dc-thread-item">
+        <div class="dc-thread-dot" style="background:${COLS[i]};"></div>
+        <div><p class="dc-thread-h">Psychological flexibility</p><p class="dc-thread-b">${s.flex}</p></div>
+      </div>
+    </div>`;
+  dp.style.borderTop=`3px solid ${COLS[i]}`;
+}
+
+function buildLinks(){
+  const all=document.getElementById('links-all');
+  const mm=document.getElementById('links-mismatches');
+  links.forEach((l,i)=>{
+    const div=document.createElement('div');
+    div.innerHTML=`
+      <div class="link-entry">
+        <div class="link-box" style="background:${BKGS[l.s]};">
+          <div class="link-label" style="color:${COLS[l.s]};">Leadership</div>
+          <div class="link-title" style="color:${COLS[l.s]};">Stage ${l.s+1} — ${l.ls}</div>
+        </div>
+        <div class="link-arrow" style="color:${COLS[l.s]};">⇄<div style="font-size:10px;margin-top:2px;">${l.arrow}</div></div>
+        <div class="link-box" style="background:${BKGS[l.s]};">
+          <div class="link-label" style="color:${COLS[l.s]};">Team</div>
+          <div class="link-title" style="color:${COLS[l.s]};">Stage ${l.s+1} — ${l.ts}</div>
+        </div>
+        <p class="link-tension">${l.tension}</p>
+      </div>`;
+    all.appendChild(div);
+    const div2=document.createElement('div');
+    div2.innerHTML=`
+      <div class="link-entry">
+        <div class="link-box" style="background:${BKGS[l.s]};">
+          <div class="link-label" style="color:${COLS[l.s]};">Stage ${l.s+1}</div>
+          <div class="link-title" style="color:${COLS[l.s]};">${l.ls} ↔ ${l.ts}</div>
+        </div>
+        <div style="grid-column:2/-1;"></div>
+        <p class="link-mismatch" style="color:${COLS[l.s]};font-style:normal;font-weight:500;grid-column:1/-1;padding-top:4px;">Common mismatch:</p>
+        <p class="link-mismatch" style="grid-column:1/-1;">${l.mismatch}</p>
+      </div>`;
+    mm.appendChild(div2);
+  });
+}
+
+function buildThreads(){
+  const el=document.getElementById('thread-content');
+  const grid=document.createElement('div');
+  grid.className='thread-grid';
+  threads.forEach((t,i)=>{
+    const c=document.createElement('div');
+    c.className='thread-card';
+    c.style.borderTop=`3px solid ${COLS[i]}`;
+    c.innerHTML=`<p class="thread-stage" style="color:${COLS[i]};">${t.stage}</p>
+      <p class="thread-type">Dialogue</p><p class="thread-body">${t.d}</p>
+      <p class="thread-type">Flexibility</p><p class="thread-body">${t.f}</p>`;
+    grid.appendChild(c);
+  });
+  el.appendChild(grid);
+}
+
+function buildAttrs(){
+  const el=document.getElementById('attr-content');
+  const grid=document.createElement('div');
+  grid.className='attr-grid';
+  grid.innerHTML=`<div class="attr-head">Transition</div><div class="attr-head">Leader develops</div><div class="attr-head">Team develops</div>`;
+  attrs.forEach((a,i)=>{
+    const s=document.createElement('div');
+    s.className='attr-cell';
+    s.innerHTML=`<span class="attr-stage" style="color:${COLS[i]};">${a.s}</span>`;
+    const l=document.createElement('div');l.className='attr-cell';l.textContent=a.l;
+    const t=document.createElement('div');t.className='attr-cell';t.textContent=a.t;
+    grid.appendChild(s);grid.appendChild(l);grid.appendChild(t);
+  });
+  el.appendChild(grid);
+}
+
+function showTab(section,tab,btn){
+  document.querySelectorAll(`#${section} .tab-panel`).forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll(`#${section} .tab`).forEach(b=>b.classList.remove('active'));
+  const panel=document.getElementById(`${section}-${tab}`)||document.getElementById(`${tab}`);
+  if(panel)panel.classList.add('active');
+  btn.classList.add('active');
+}
+
+buildOverviewLists();
+buildNav('l-nav',lStages,'l-detail');
+buildNav('t-nav',tStages,'t-detail');
+buildLinks();
+buildThreads();
+buildAttrs();
+</script>
+</body>
+</html>
